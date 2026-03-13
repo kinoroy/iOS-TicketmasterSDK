@@ -24,29 +24,30 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download doccarchives from release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${GITHUB_REF_NAME}"
           mkdir -p Frameworks
-          curl -L --retry 3 --fail -o "TicketmasterAuthentication.doccarchive.zip" \
-            "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/${TAG}/TicketmasterAuthentication.doccarchive.zip"
-          unzip -o "TicketmasterAuthentication.doccarchive.zip" -d Frameworks/
-          rm "TicketmasterAuthentication.doccarchive.zip"
-          curl -L --retry 3 --fail -o "TicketmasterDiscoveryAPI.doccarchive.zip" \
-            "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/${TAG}/TicketmasterDiscoveryAPI.doccarchive.zip"
-          unzip -o "TicketmasterDiscoveryAPI.doccarchive.zip" -d Frameworks/
-          rm "TicketmasterDiscoveryAPI.doccarchive.zip"
-          curl -L --retry 3 --fail -o "TicketmasterPrePurchase.doccarchive.zip" \
-            "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/${TAG}/TicketmasterPrePurchase.doccarchive.zip"
-          unzip -o "TicketmasterPrePurchase.doccarchive.zip" -d Frameworks/
-          rm "TicketmasterPrePurchase.doccarchive.zip"
-          curl -L --retry 3 --fail -o "TicketmasterPurchase.doccarchive.zip" \
-            "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/${TAG}/TicketmasterPurchase.doccarchive.zip"
-          unzip -o "TicketmasterPurchase.doccarchive.zip" -d Frameworks/
-          rm "TicketmasterPurchase.doccarchive.zip"
-          curl -L --retry 3 --fail -o "TicketmasterTickets.doccarchive.zip" \
-            "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/${TAG}/TicketmasterTickets.doccarchive.zip"
-          unzip -o "TicketmasterTickets.doccarchive.zip" -d Frameworks/
-          rm "TicketmasterTickets.doccarchive.zip"
+          gh release view "${TAG}" --json assets --jq '.assets[].name' \
+            | grep '\.doccarchive\.zip$' \
+            | while read -r asset; do
+                gh release download "${TAG}" --pattern "${asset}" --dir .
+                unzip -o "${asset}" -d Frameworks/
+                rm "${asset}"
+              done
+
+      - name: Process doccarchives for static hosting
+        run: |
+          mkdir -p docs
+          for archive in Frameworks/*.doccarchive; do
+            name=$(basename "${archive}" .doccarchive)
+            echo "Processing ${name}..."
+            $(xcrun --find docc) process-archive \
+              transform-for-static-hosting "${archive}" \
+              --output-path "docs/${name}" \
+              --hosting-base-path "iOS-TicketmasterSDK/docs/${name}"
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
