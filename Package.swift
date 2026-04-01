@@ -18,43 +18,43 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "TicketmasterFoundation",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterFoundation.xcframework.zip",
-            checksum: "c26394245e4a4dbc06f6dca33b9b6879843ea81c1e87c9dd7b0e36bf251b590f"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterFoundation.xcframework.zip",
+            checksum: "0ceba8298a4889e795df1bfbe9f7a7e189119dc8ec0f9380feade1973087bb88"
         ),
         .binaryTarget(
             name: "TicketmasterAuthentication",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterAuthentication.xcframework.zip",
-            checksum: "f8c0d28f561a7bc07be7e98f51366513cfc80b393570f143e99a57350dbf26c0"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterAuthentication.xcframework.zip",
+            checksum: "6f3432d82269f6f1d24cec3fffa843cb19d9223f133c6bf017beeea1b1928f3f"
         ),
         .binaryTarget(
             name: "TicketmasterDiscoveryAPI",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterDiscoveryAPI.xcframework.zip",
-            checksum: "108c812e9df1b270f271b644eec3ae92340b3d4cb35c03d0100f1ac6d8dcf4d1"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterDiscoveryAPI.xcframework.zip",
+            checksum: "509ca61ea44e327e202dc49b24a2f7f21680e84d3f2b0776fa020719b07b4357"
         ),
         .binaryTarget(
             name: "TicketmasterPrePurchase",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterPrePurchase.xcframework.zip",
-            checksum: "7a7b6a409921aceb0ffd0a550339fdec89cda66773a2c5ba9c984ef6769c93cf"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterPrePurchase.xcframework.zip",
+            checksum: "01becdefe18cdf9c62e0a2863896ef567c732fb062dc77443b5f4e6a7b2e7fc6"
         ),
         .binaryTarget(
             name: "TicketmasterPurchase",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterPurchase.xcframework.zip",
-            checksum: "c51c022e6eddf403fa320eec9142d8feb9171c0fa0d009ddf5adcd1ed7ffebac"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterPurchase.xcframework.zip",
+            checksum: "2499453e597187ddadc54a979559ea1bc987a09cd2b2513a9d4b26507d5deb3e"
         ),
         .binaryTarget(
             name: "TicketmasterSwiftProtobuf",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterSwiftProtobuf.xcframework.zip",
-            checksum: "89af4981ed84e9297cec74ffc00b283432c499f1638287204d1363f3107d869d"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterSwiftProtobuf.xcframework.zip",
+            checksum: "3eb1223ff14b1ff75488a699a7932b9f6d53c9144a22cb13115fbdc3dc072f43"
         ),
         .binaryTarget(
             name: "TicketmasterSecureEntry",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterSecureEntry.xcframework.zip",
-            checksum: "5eef69cda9b27899e9d66af531a5b5e2083157d34e66af9555ea94e9a1acd4b1"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterSecureEntry.xcframework.zip",
+            checksum: "da400f11b5a979285f9a7d8a9ae3738c5b7a693ae8e28009a6c7a04071e3e736"
         ),
         .binaryTarget(
             name: "TicketmasterTickets",
-            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.1/TicketmasterTickets.xcframework.zip",
-            checksum: "7ac82431e5875bcb7890fbce18d7f0d4597579f12c99400e1c74d388ed5f9528"
+            url: "https://github.com/kinoroy/iOS-TicketmasterSDK/releases/download/0.99.3/TicketmasterTickets.xcframework.zip",
+            checksum: "fc6735bb8a332f5baf611fac5da898f33d8cee49bd0c5e108cdda84fc593bb32"
         ),
     ],
     swiftLanguageVersions: [.v5]
